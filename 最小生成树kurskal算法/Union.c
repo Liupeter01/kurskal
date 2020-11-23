@@ -15,7 +15,7 @@ void Union(int* S, int Root1, int Root2)   //集合的合并集合Root2要被合并到集合Ro
           S[Root2] = Root1;   //修改Root2的双亲结点为Root1即可
 }
 
-int FindItem(int* S, int x)  //查找当前该值位于哪一个树，S为并查集，x为被查找元素
+int FindItem(int* S, int x)  //查找当前该值位于哪一个树(查找根节点)
 {
           while (S[x] >= 0 )   //循环以访问到根节点为结束
           {

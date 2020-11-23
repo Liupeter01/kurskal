@@ -3,35 +3,39 @@
 /*初始化Kurskal算法，包括数组以及并查集数组*/
 void InitKurskal(MGraph G, EDGE** arr, int** UnionArray)
 {
-		  int SizeCounter = EdgeCalculate(G);					  //用于计算边的数量
-		  Initquicksort(arr, SizeCounter);		  //初始化排序
 		  UnionInitial(G, UnionArray);				//初始化并查集
-}
-
-/*
-*Kurskal算法主体部分
-*包含排序数组以及并查集
-*/
-void Kurskal(MGraph G, EDGE* arr, int* UnionArray)
-{
-		  InitKurskal(G, &arr, &UnionArray);				//初始化数组，并查集
+		  *arr = (EDGE*)malloc(sizeof(EDGE) * G.arcnum);
+		  assert(*arr != NULL);
 		  int counter = 0;
 		  for (int i = 0; i < G.vexnum; ++i)				//将Kurskal边集中的所有边添加到数组
 		  {
 					for (int j = i + 1; j < G.vexnum; ++j)
 					{
-							  if (G.Edge[i][j] != -1)
+							  if (G.Edge[i][j]!=0 && G.Edge[i][j] != -1 && G.Edge[i][j] != INFINITYSIZE)
 							  {
-										arr[counter].length = G.Edge[i][j];
-										arr[counter].v1 = G.Vex[i];
-										arr[counter++].v2 = G.Vex[j];
+										(*arr)[counter].EdgeValue = G.Edge[i][j];		  //获取边值
+										(*arr)[counter].v1 = G.Vex[i];					   //获取顶点1				
+										(*arr)[counter++].v2 = G.Vex[j];				  //获取顶点2
 							  }
 					}
 		  }
-		  int arraysize = EdgeCalculate(G);
-		  QuickSort(0, arraysize, arr);						//根据边的大小对于数组进行快速排序，所有的边以增序排列
+}
+
+void DestroyKurskal(EDGE* arr, int* UnionArray)				//Kurskal算法销毁
+{
+		  free(arr);
+		  free(UnionArray);
+}
+
+void Kurskal(MGraph G, VertexType V)			  //Kurskal算法主体部分
+{
+		  EDGE* arr = NULL;
+		  int* UnionArray = NULL;
+		  InitKurskal(G, &arr, &UnionArray);				//初始化数组，并查集
+
+		  QuickSort(0, G.arcnum - 1, arr);		  //增序快速排序
 		  int v1_pos = 0, v2_pos = 0;						//存放两个顶点的下标
-		  for (int i = 0; i < arraysize; ++i)				//从头开始遍历边集数组
+		  for (int i = 0; i < G.arcnum; ++i)				//从头开始遍历边集数组
 		  {
 					/*
 					*寻找每一个顶点在数组中的具体位置
@@ -47,18 +51,13 @@ void Kurskal(MGraph G, EDGE* arr, int* UnionArray)
 					{
 							  v2_pos = LocateVertex(G, arr[i].v2);//自己本身就是根节点
 					}
-					int res_v1 = FindItem(UnionArray, v1_pos);    //对于顶点1的根节点进行判断
-					int res_v2 = FindItem(UnionArray, v2_pos);	    //对于顶点2的根节点进行判断
-					if (res_v1 != res_v2)			  //如果两个根节点不同，则代表当前结构不是环
+
+					int v1_root = FindItem(UnionArray, v1_pos);		  //寻找顶点1的根节点
+					int v2_root = FindItem(UnionArray, v2_pos);		  //寻找顶点2的根节点
+					if (v1_root != v2_root)//顶点1和顶点2不可以形成回路
 					{
 							  Union(UnionArray, v1_pos, v2_pos);	  //可以继续进行并查集的操作
 					}
 		  }
-}
-
-/*Kurskal算法销毁*/
-void DestroyKurskal(EDGE* arr, int* UnionArray)
-{
-		  free(arr);
-		  free(UnionArray);
+		  DestroyKurskal(arr, UnionArray);
 }

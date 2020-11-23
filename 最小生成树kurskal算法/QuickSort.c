@@ -20,7 +20,7 @@ void QuickSort(int left, int right, EDGE* edge)	  //©ЛкыеепР
 							  {
 										++i;
 							  }
-							  while (edge[left].EdgeValue <= edge[j].EdgeValue && j < left)
+							  while (edge[left].EdgeValue <= edge[j].EdgeValue && j > left)
 							  {
 										--j;
 							 }

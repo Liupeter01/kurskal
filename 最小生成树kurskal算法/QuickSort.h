@@ -5,7 +5,7 @@ typedef struct EDGE
 {
 		  VertexType v1;				//顶点1
 		  VertexType v2;				//顶点2
-		  int EdgeValue;				//边的权
+		  unsigned int EdgeValue;				//边的权
 }EDGE;
 
 void SwapEdge(EDGE* edge_1, EDGE* edge_2);				  //交换各边
