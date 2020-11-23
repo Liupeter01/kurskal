@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="图的数据结构">
+      <UniqueIdentifier>{8bb19985-0f30-4331-93be-d5e4c0ff8067}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="图的数据结构\源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="图的数据结构\头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="并查集">
+      <UniqueIdentifier>{52814dac-d031-4fb6-82d7-030438b33b25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="排序算法">
+      <UniqueIdentifier>{1ef53910-fc97-4f75-b7bb-0481feeed508}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="最小生成树kurskal">
+      <UniqueIdentifier>{54dffa14-82ca-4ed6-85ff-a8059182e080}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="并查集\源文件">
+      <UniqueIdentifier>{0da022c2-68e6-433f-b719-d4a1690a216c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="并查集\头文件">
+      <UniqueIdentifier>{a939269d-0a83-4125-8e42-9ac9d338f60f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="最小生成树kurskal\源文件">
+      <UniqueIdentifier>{662856ee-7fd9-4e69-be1c-5dc116232e35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="最小生成树kurskal\头文件">
+      <UniqueIdentifier>{cf4d3e86-0d4b-4b6c-b667-2bbe9ef66b75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="排序算法\源文件">
+      <UniqueIdentifier>{05896401-2039-46e3-8a28-abe6573747c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="排序算法\头文件">
+      <UniqueIdentifier>{e6aa3b52-5ee6-4d72-bf94-52f4567605c0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c">
+      <Filter>图的数据结构\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MGraph.c">
+      <Filter>图的数据结构\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectedEdge.c">
+      <Filter>图的数据结构\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="UnDirectedEdge.c">
+      <Filter>图的数据结构\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Union.c">
+      <Filter>并查集\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="kurskal.c">
+      <Filter>最小生成树kurskal\源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="QuickSort.c">
+      <Filter>排序算法\源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MGraph.h">
+      <Filter>图的数据结构\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectedEdge.h">
+      <Filter>图的数据结构\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UnDirectedEdge.h">
+      <Filter>图的数据结构\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Union.h">
+      <Filter>并查集\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="kurskal.h">
+      <Filter>最小生成树kurskal\头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="QuickSort.h">
+      <Filter>排序算法\头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
