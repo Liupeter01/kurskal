@@ -19,6 +19,7 @@ void InitKurskal(MGraph G, EDGE** arr, int** UnionArray)
 							  }
 					}
 		  }
+		  QuickSort(0, G.arcnum - 1, *arr);		  //增序快速排序
 }
 
 void DestroyKurskal(EDGE* arr, int* UnionArray)				//Kurskal算法销毁
@@ -27,23 +28,17 @@ void DestroyKurskal(EDGE* arr, int* UnionArray)				//Kurskal算法销毁
 		  free(UnionArray);
 }
 
-void Kurskal(MGraph G, VertexType V)			  //Kurskal算法主体部分
+void Kurskal(MGraph G)			  //Kurskal算法主体部分
 {
 		  EDGE* arr = NULL;
 		  int* UnionArray = NULL;
 		  InitKurskal(G, &arr, &UnionArray);				//初始化数组，并查集
-
-		  QuickSort(0, G.arcnum - 1, arr);		  //增序快速排序
 		  int v1_pos = 0, v2_pos = 0;						//存放两个顶点的下标
 		  for (int i = 0; i < G.arcnum; ++i)				//从头开始遍历边集数组
 		  {
-					/*
-					*寻找每一个顶点在数组中的具体位置
-					*对于第1个顶点而言，位置无需考虑，可能位于某一个集合中或者根结点
-					*对于第2个顶点而言，位置需要考虑!!如果要将顶点2移动到顶点1的集合中，必须从根节点移动
-					*/
-					v1_pos = LocateVertex(G, arr[i].v1);			  //顶点1 v1_pos 任意
-					if (UnionArray[LocateVertex(G, arr[i].v2)] != -1)	//当前的顶点2不在根节点
+					v1_pos = LocateVertex(G, arr[i].v1);
+					//在该代码中，默认将顶点2作为后序的结点。若需要移动则需要查找顶点2的根节点
+					if (UnionArray[LocateVertex(G, arr[i].v2)] != -1)	//当前的顶点2不是根节点
 					{
 							  v2_pos = FindItem(UnionArray, LocateVertex(G, arr[i].v2));	//获取根节点
 					}
@@ -54,7 +49,7 @@ void Kurskal(MGraph G, VertexType V)			  //Kurskal算法主体部分
 
 					int v1_root = FindItem(UnionArray, v1_pos);		  //寻找顶点1的根节点
 					int v2_root = FindItem(UnionArray, v2_pos);		  //寻找顶点2的根节点
-					if (v1_root != v2_root)//顶点1和顶点2不可以形成回路
+					if (v1_root != v2_root)//顶点1和顶点2不可以位于同一个连通子图之中
 					{
 							  Union(UnionArray, v1_pos, v2_pos);	  //可以继续进行并查集的操作
 					}

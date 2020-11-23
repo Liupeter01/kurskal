@@ -4,4 +4,4 @@
 
 void InitKurskal(MGraph G, EDGE** arr, int** UnionArray);	//初始化Kurskal算法，包括数组以及并查集数组
 void DestroyKurskal(EDGE* arr, int* UnionArray);			//Kurskal算法销毁
-void Kurskal(MGraph G, VertexType V);			  //Kurskal算法主体部分
+void Kurskal(MGraph G);			  //Kurskal算法主体部分
