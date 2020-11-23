@@ -77,7 +77,7 @@ BOOL ExtendGraphSize(MGraph* G,VertexType*arr, int type)                //Í¼GµÄ¿
                     memset(G->Edge[i], ((type == NORMALGRAPH) ? 0 : INFINITYSIZE), sizeof(EdgeType) * GraphSize);  //È«²¿³õÊ¼»¯Îª0
           }
           G->MaxVertexNum = GraphSize;         //À©Õ¹×î´óÈİÁ¿
-          if (type != NORMALGRAPH)         //ÊôÓÚ´øÈ¨Í¼
+          if (type != NORMALGRAPH)         //Èç¹û¸ÃÍ¼ÊÇÒ»¸ö´øÈ¨Í¼£¬Ôò½«ËùÓĞµÄ¶Ô½ÇÏßÇå¿ÕÎª0
           {
                     for (int i = 0; i < G->MaxVertexNum; ++i)
                     {
