@@ -37,18 +37,18 @@ int LocateVertex(MGraph G, VertexType x)   //在图G中找到顶点下标
 
 void DisplayGraph(MGraph G)             //图G的输出
 {
-          printf("   ");                 //空格对齐
+          printf("    ");                 //空格对齐
           for (int i = 0; i < G.vexnum; ++i)                //输出顶点
           {
-                    printf("%c  ", G.Vex[i]);
+                    printf("%-4c  ", G.Vex[i]);
           }
           printf("\n");
           for (int i = 0; i < G.vexnum; ++i)                //输出数据
           {
-                    printf("%c  ", G.Vex[i]);
+                    printf("%c:  ", G.Vex[i]);
                     for (int j = 0; j < G.vexnum; ++j)
                     {
-                              printf("%d  ", G.Edge[i][j]);
+                              printf("%-4d  ", G.Edge[i][j]);
                     }
                     printf("\n");
           }

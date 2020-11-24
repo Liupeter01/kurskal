@@ -9,13 +9,13 @@ int main()
           InitGraph(&Graph);         //初始化
 
           /*顶点列表批量添加*/
-          VertexType arr[] = { "ABCDEFG" };
+          VertexType arr[] = { "ABCDE" };
           CreateBatchVertex(&Graph, arr, GRAPHWITHVALUE);      //顶点列表批量添加
 
-          VertexType arr1[] = "AAAFFBFGFCDD";
-          VertexType arr2[] = "BFGBGCCEEECE";
+          VertexType arr1[] = "AEACCE";
+          VertexType arr2[] = "BACBDC";
 
-          int Distance[] = { 12,16,14,7,9,10,6,8,2,5,3,4 };
+          int Distance[] = { 3,4,1,2 ,5,6 };
 
 
           for (int i = 0; i < (int)strlen(arr1); ++i)
@@ -23,9 +23,9 @@ int main()
                     InsertUnDirectEdgeValue(&Graph, *(arr1 + i), *(arr2 + i), Distance[i]);
           }
 
-          Kurskal(Graph, 'A');
-
           DisplayGraph(Graph);          //图的输出
+
+          Kurskal(Graph);
           DestroyGraph(&Graph);         //图的销毁
           return 0;
 }
